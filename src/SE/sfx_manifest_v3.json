@@ -1,0 +1,49 @@
+{
+  "pack": "LOGOUT Game Original SFX v3 targeted revision",
+  "files": [
+    {
+      "file": "footsteps_grass_loop.wav",
+      "duration_seconds": 1.66,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "loop": true,
+      "peak_dbfs": -4.6,
+      "rms_dbfs": -22.56,
+      "note": "신발 착지·밑창 롤링·풀잎 마찰, 4걸음/1.66초 빠른 보행 루프"
+    },
+    {
+      "file": "footsteps_dirt_loop.wav",
+      "duration_seconds": 1.66,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "loop": true,
+      "peak_dbfs": -4.3,
+      "rms_dbfs": -21.7,
+      "note": "신발 착지·흙 압착·잔자갈, 4걸음/1.66초 빠른 보행 루프"
+    },
+    {
+      "file": "footsteps_stone_loop.wav",
+      "duration_seconds": 1.66,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "loop": true,
+      "peak_dbfs": -4.0,
+      "rms_dbfs": -26.71,
+      "note": "단단한 신발 밑창·건조한 바위 반사, 4걸음/1.66초 빠른 보행 루프"
+    },
+    {
+      "file": "dragon_boss_roar.wav",
+      "duration_seconds": 2.86,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "loop": false,
+      "peak_dbfs": -1.15,
+      "rms_dbfs": -13.67,
+      "note": "저음 흉곽·불규칙 성대·거친 숨이 결합된 2.86초 정통 드래곤 포효"
+    }
+  ]
+}

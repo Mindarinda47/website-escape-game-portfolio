@@ -1,0 +1,85 @@
+{
+  "pack": "LOGOUT additional game and web SFX v3",
+  "web_revision": "real CC0 recordings; no synthesis or virtual instruments",
+  "default_policy": "one-shots are short unless a longer duration was explicitly requested",
+  "game_files_preserved": [
+    "game/dragon_boss_defeated_explosion.wav",
+    "game/harp_item_obtained.wav",
+    "game/hero_hurt.wav",
+    "game/important_item_obtained.wav",
+    "game/monster_defeated.wav",
+    "game/treasure_chest_open.wav",
+    "game/well_heal.wav"
+  ],
+  "changed_web_files": [
+    {
+      "file": "web/fire_extinguish.wav",
+      "description": "실제 소화기 분사에서 자른 짧은 불 끄기 소리",
+      "duration_seconds": 0.78,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "peak_dbfs": -3.79,
+      "rms_dbfs": -23.13,
+      "loop": false,
+      "source_url": "https://freesound.org/people/tranzfusion/sounds/642961/",
+      "license": "CC0 1.0"
+    },
+    {
+      "file": "web/football_match_start_whistle.wav",
+      "description": "실제 심판 휘슬 한 번과 자연스러운 실내 잔향",
+      "duration_seconds": 1.02,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "peak_dbfs": -6.73,
+      "rms_dbfs": -16.14,
+      "loop": false,
+      "source_url": "https://freesound.org/people/SpliceSound/sounds/218318/",
+      "license": "CC0 1.0"
+    },
+    {
+      "file": "web/football_crowd_loop.wav",
+      "description": "실제 네덜란드 축구 경기장 현장 녹음을 연결한 20초 관중 루프",
+      "duration_seconds": 20.0,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "peak_dbfs": -3.04,
+      "rms_dbfs": -23.53,
+      "loop": true,
+      "loop_join_method": "1.8-second equal-gain crossfade inside one field recording",
+      "source_url": "https://freesound.org/people/Sandermotions/sounds/494358/",
+      "license": "CC0 1.0"
+    },
+    {
+      "file": "web/football_goal.wav",
+      "description": "실제 골망 접촉과 실제 경기장 득점 함성으로 만든 골 순간",
+      "duration_seconds": 4.2,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "peak_dbfs": -6.2,
+      "rms_dbfs": -13.34,
+      "loop": false,
+      "source_urls": [
+        "https://freesound.org/people/Sandermotions/sounds/494352/",
+        "https://freesound.org/people/Luisa_Sanchez/sounds/813410/"
+      ],
+      "license": "CC0 1.0"
+    },
+    {
+      "file": "web/football_ball_contact.wav",
+      "description": "실제 사람이 실제 축구공을 찬 한 번의 짧은 접촉음",
+      "duration_seconds": 0.34,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "bit_depth": 16,
+      "peak_dbfs": -3.77,
+      "rms_dbfs": -25.03,
+      "loop": false,
+      "source_url": "https://freesound.org/people/musita182/sounds/261267/",
+      "license": "CC0 1.0"
+    }
+  ]
+}

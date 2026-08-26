@@ -1,0 +1,46 @@
+CC0 source record — web SFX v3
+
+All five web effects in this revision use real recorded source material.
+No synthesizer, generated tone, virtual instrument, or artificial crowd layer
+was added. Editing was limited to excerpt selection, mono fold-down, gain,
+short edge fades, and the crossfade needed for the crowd loop.
+
+1. web/fire_extinguish.wav
+   Source: "Fire Extinguisher" by tranzfusion
+   URL: https://freesound.org/people/tranzfusion/sounds/642961/
+   License: Creative Commons CC0 1.0
+   Edit: One short real extinguisher burst, trimmed to 0.78 s.
+
+2. web/football_match_start_whistle.wav
+   Source: "Referee whistle blow, gymnasium.wav" by SpliceSound
+   URL: https://freesound.org/people/SpliceSound/sounds/218318/
+   License: Creative Commons CC0 1.0
+   Edit: One real referee-whistle blow and its natural room tail, 1.02 s.
+
+3. web/football_crowd_loop.wav
+   Source: "Soccer Stadium 08.wav" by Sandermotions
+   URL: https://freesound.org/people/Sandermotions/sounds/494358/
+   License: Creative Commons CC0 1.0
+   Edit: Real Dutch football-stadium field recording; a 20.00 s section was
+         joined with a 1.8 s internal crossfade for continuous looping.
+
+4. web/football_goal.wav
+   Source A: "Goal.wav" by Sandermotions
+   URL: https://freesound.org/people/Sandermotions/sounds/494352/
+   License: Creative Commons CC0 1.0
+   Source B: "Soccer net" by Luisa_Sanchez
+   URL: https://freesound.org/people/Luisa_Sanchez/sounds/813410/
+   License: Creative Commons CC0 1.0
+   Edit: Real net contact followed by the rise of a real stadium crowd, 4.20 s.
+         No spoken "goal", referee whistle, music, or UI tone was added.
+
+5. web/football_ball_contact.wav
+   Source: "Soccer Kick.wav" by musita182
+   URL: https://freesound.org/people/musita182/sounds/261267/
+   License: Creative Commons CC0 1.0
+   Edit: One clean kick from a real person striking a real football, 0.34 s.
+
+The source material was taken from Freesound's high-quality previews, then
+converted to 44.1 kHz / 16-bit mono WAV. CC0 permits copying, modification,
+distribution, and commercial use without required attribution. This record is
+retained for source traceability.

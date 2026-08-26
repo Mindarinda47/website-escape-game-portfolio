@@ -1,0 +1,183 @@
+import type { Checkpoint } from "../state/types";
+import type { Rect, SceneDefinition } from "./types";
+import { adventureText } from "../content/text";
+
+const dungeonWalls: Rect[] = [
+  { x: 0, y: 0, width: 2200, height: 56 },
+  { x: 0, y: 1544, width: 2200, height: 56 },
+  { x: 0, y: 0, width: 56, height: 1600 },
+  { x: 2144, y: 0, width: 56, height: 1600 },
+  { x: 240, y: 190, width: 620, height: 48 },
+  { x: 1040, y: 190, width: 760, height: 48 },
+  { x: 240, y: 190, width: 48, height: 380 },
+  { x: 1040, y: 190, width: 48, height: 540 },
+  { x: 1800, y: 190, width: 48, height: 370 },
+  { x: 470, y: 420, width: 390, height: 48 },
+  { x: 1280, y: 410, width: 320, height: 48 },
+  { x: 470, y: 420, width: 48, height: 360 },
+  { x: 780, y: 420, width: 48, height: 570 },
+  { x: 1280, y: 410, width: 48, height: 380 },
+  { x: 1552, y: 410, width: 48, height: 590 },
+  { x: 70, y: 730, width: 300, height: 48 },
+  { x: 470, y: 730, width: 310, height: 48 },
+  { x: 1040, y: 730, width: 288, height: 48 },
+  { x: 1552, y: 730, width: 360, height: 48 },
+  { x: 320, y: 960, width: 510, height: 48 },
+  { x: 1020, y: 980, width: 580, height: 48 },
+  { x: 320, y: 960, width: 48, height: 350 },
+  { x: 1020, y: 980, width: 48, height: 360 },
+  { x: 1880, y: 940, width: 48, height: 390 },
+  { x: 70, y: 1300, width: 620, height: 48 },
+  { x: 860, y: 1320, width: 610, height: 48 },
+  { x: 1650, y: 1300, width: 278, height: 48 },
+];
+
+const castlePillars = (offsetY = 0): Rect[] => [
+  { x: 245, y: 250 + offsetY, width: 72, height: 120 },
+  { x: 600, y: 250 + offsetY, width: 72, height: 120 },
+  { x: 955, y: 250 + offsetY, width: 72, height: 120 },
+  { x: 1180, y: 535 + offsetY, width: 72, height: 120 },
+  { x: 820, y: 535 + offsetY, width: 72, height: 120 },
+  { x: 460, y: 535 + offsetY, width: 72, height: 120 },
+];
+
+export const scenes: Record<Checkpoint, SceneDefinition> = {
+  village: {
+    ...adventureText.scenes.village,
+    ground: "village",
+    width: 1200,
+    height: 800,
+    spawn: { x: 250, y: 560 },
+    obstacles: [
+      { x: 90, y: 90, width: 250, height: 180 },
+      { x: 785, y: 80, width: 270, height: 195 },
+      { x: 90, y: 680, width: 340, height: 30 },
+      { x: 780, y: 650, width: 260, height: 30 },
+      { x: 488, y: 468, width: 64, height: 54 },
+    ],
+    exits: [{ rect: { x: 1172, y: 355, width: 28, height: 150 }, to: "world", spawn: { x: 90, y: 600 }, label: "초원길" }],
+  },
+  world: {
+    ...adventureText.scenes.world,
+    ground: "grass",
+    width: 1800,
+    height: 1200,
+    spawn: { x: 90, y: 600 },
+    obstacles: [
+      { x: 180, y: 80, width: 150, height: 170 },
+      { x: 690, y: 95, width: 160, height: 145 }, { x: 1040, y: 60, width: 145, height: 190 },
+      { x: 1600, y: 300, width: 130, height: 180 },
+      { x: 210, y: 860, width: 170, height: 180 }, { x: 520, y: 930, width: 145, height: 155 },
+      { x: 850, y: 875, width: 165, height: 190 }, { x: 1160, y: 920, width: 145, height: 160 },
+      { x: 1340, y: 520, width: 120, height: 150 },
+    ],
+    exits: [
+      { rect: { x: 0, y: 520, width: 32, height: 170 }, to: "village", spawn: { x: 1120, y: 430 }, label: "새벽바람 마을" },
+      { rect: { x: 438, y: 86, width: 94, height: 64 }, to: "dungeon", spawn: { x: 1100, y: 1440 }, label: "메아리 동굴" },
+      { rect: { x: 1533, y: 78, width: 84, height: 72 }, to: "castle-1", spawn: { x: 750, y: 970 }, label: "검은 성", requiresLevel: 3, requiresGreatSword: true },
+      { rect: { x: 1768, y: 970, width: 32, height: 150 }, to: "secret", spawn: { x: 85, y: 450 }, label: "이름 없는 숲", hidden: true },
+    ],
+  },
+  dungeon: {
+    ...adventureText.scenes.dungeon,
+    ground: "dungeon",
+    width: 2200,
+    height: 1600,
+    spawn: { x: 1100, y: 1440 },
+    obstacles: dungeonWalls,
+    exits: [{ rect: { x: 1030, y: 1490, width: 140, height: 110 }, to: "world", spawn: { x: 485, y: 190 }, label: "초원으로" }],
+  },
+  "castle-1": {
+    ...adventureText.scenes["castle-1"],
+    ground: "castle",
+    width: 1500,
+    height: 1100,
+    spawn: { x: 750, y: 970 },
+    obstacles: [
+      ...castlePillars(),
+      { x: 0, y: 0, width: 1500, height: 50 }, { x: 0, y: 0, width: 50, height: 1100 },
+      { x: 1450, y: 0, width: 50, height: 1100 }, { x: 0, y: 1050, width: 610, height: 50 },
+      { x: 890, y: 1050, width: 610, height: 50 }, { x: 360, y: 780, width: 310, height: 48 },
+      { x: 830, y: 780, width: 310, height: 48 },
+    ],
+    exits: [
+      { rect: { x: 650, y: 1010, width: 200, height: 90 }, to: "world", spawn: { x: 1575, y: 190 }, label: "성 밖" },
+      { rect: { x: 650, y: 0, width: 200, height: 55 }, to: "castle-2", spawn: { x: 750, y: 970 }, label: "2층 계단" },
+    ],
+  },
+  "castle-2": {
+    ...adventureText.scenes["castle-2"],
+    ground: "castle",
+    width: 1500,
+    height: 1100,
+    spawn: { x: 750, y: 970 },
+    obstacles: [
+      ...castlePillars(35),
+      { x: 0, y: 0, width: 1500, height: 50 }, { x: 0, y: 0, width: 50, height: 1100 },
+      { x: 1450, y: 0, width: 50, height: 1100 }, { x: 0, y: 1050, width: 610, height: 50 },
+      { x: 890, y: 1050, width: 610, height: 50 }, { x: 120, y: 430, width: 470, height: 48 },
+      { x: 910, y: 430, width: 470, height: 48 }, { x: 720, y: 190, width: 60, height: 340 },
+    ],
+    exits: [
+      { rect: { x: 650, y: 1010, width: 200, height: 90 }, to: "castle-1", spawn: { x: 750, y: 110 }, label: "1층 계단" },
+      { rect: { x: 650, y: 0, width: 200, height: 55 }, to: "boss", spawn: { x: 650, y: 760 }, label: "왕좌의 방" },
+    ],
+  },
+  boss: {
+    ...adventureText.scenes.boss,
+    ground: "castle",
+    width: 1300,
+    height: 900,
+    spawn: { x: 650, y: 760 },
+    obstacles: [
+      { x: 0, y: 0, width: 1300, height: 52 }, { x: 0, y: 0, width: 52, height: 900 },
+      { x: 1248, y: 0, width: 52, height: 900 }, { x: 0, y: 848, width: 500, height: 52 },
+      { x: 800, y: 848, width: 500, height: 52 }, { x: 165, y: 190, width: 78, height: 140 },
+      { x: 1057, y: 190, width: 78, height: 140 }, { x: 165, y: 555, width: 78, height: 140 },
+      { x: 1057, y: 555, width: 78, height: 140 },
+    ],
+    exits: [
+      { rect: { x: 550, y: 810, width: 200, height: 90 }, to: "castle-2", spawn: { x: 750, y: 110 }, label: "2층 회랑" },
+      { rect: { x: 550, y: 0, width: 200, height: 72 }, to: "rescue", spawn: { x: 250, y: 470 }, label: "숨겨진 통로", hidden: true, requiresBossDefeated: true },
+    ],
+  },
+  secret: {
+    ...adventureText.scenes.secret,
+    ground: "secret",
+    width: 1200,
+    height: 900,
+    spawn: { x: 85, y: 450 },
+    obstacles: [
+      { x: 130, y: 80, width: 150, height: 170 }, { x: 130, y: 660, width: 150, height: 170 },
+      { x: 390, y: 110, width: 130, height: 190 }, { x: 390, y: 610, width: 130, height: 190 },
+      { x: 650, y: 70, width: 150, height: 200 }, { x: 650, y: 650, width: 150, height: 200 },
+      { x: 920, y: 170, width: 150, height: 180 }, { x: 920, y: 550, width: 150, height: 180 },
+    ],
+    exits: [{ rect: { x: 0, y: 380, width: 32, height: 140 }, to: "world", spawn: { x: 1690, y: 1020 }, label: "초원으로" }],
+  },
+  rescue: {
+    ...adventureText.scenes.rescue,
+    ground: "rescue",
+    width: 1000,
+    height: 700,
+    spawn: { x: 250, y: 470 },
+    obstacles: [
+      { x: 0, y: 0, width: 1000, height: 48 }, { x: 0, y: 0, width: 48, height: 700 },
+      { x: 952, y: 0, width: 48, height: 700 }, { x: 0, y: 652, width: 1000, height: 48 },
+    ],
+    exits: [],
+  },
+  clear: {
+    ...adventureText.scenes.clear,
+    ground: "rescue",
+    width: 1000,
+    height: 700,
+    spawn: { x: 500, y: 500 },
+    obstacles: [],
+    exits: [],
+  },
+};
+
+export const sceneCopy = Object.fromEntries(
+  Object.entries(scenes).map(([key, scene]) => [key, { title: scene.title, objective: scene.objective }]),
+) as Record<Checkpoint, { title: string; objective: string }>;
