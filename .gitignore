@@ -5,3 +5,8 @@ dist/
 .DS_Store
 submission-docs/
 *.tsbuildinfo
+
+# Media resources are excluded from this source portfolio.
+src/image/**/*.png
+src/BGM/*.mp3
+src/SE/**/*.wav
